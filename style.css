@@ -1,0 +1,143 @@
+/* ==== Base ==== */
+:root{
+  --bg:#0b0f12;
+  --card:#12171b;
+  --muted:#9aa4ad;
+  --text:#eef2f6;
+  --accent:#0A7A36;   /* Vert logo */
+  --accent-2:#1fbf5b; /* Vert clair */
+  --ring:rgba(31,191,91,.25);
+  --border:rgba(255,255,255,.08);
+  --shadow:0 10px 30px rgba(0,0,0,.35);
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: 'Montserrat', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  color:var(--text);
+  background: radial-gradient(1200px 600px at 70% -10%, rgba(31,191,91,.15), transparent 60%),
+              radial-gradient(900px 500px at 0% 100%, rgba(10,122,54,.18), transparent 60%),
+              var(--bg);
+}
+
+.container{
+  width:100%;
+  max-width:440px;
+  margin:32px auto 48px;
+  padding:0 12px;
+}
+
+/* ==== Card ==== */
+.card{
+  background:linear-gradient(180deg, rgba(255,255,255,.03), transparent 30%), var(--card);
+  border:1px solid var(--border);
+  border-radius:20px;
+  box-shadow:var(--shadow);
+  overflow:hidden;
+}
+
+/* ==== Cover / Logo / Profil ==== */
+.cover{position:relative; height:170px; background:#0e1317}
+.cover-img{width:100%; height:100%; object-fit:cover; opacity:.55; filter:saturate(.9) contrast(1.05)}
+.logo-wrap{
+  position:absolute; left:14px; top:14px;
+  background:#ffffff; border-radius:12px; padding:6px 8px; box-shadow:0 6px 14px rgba(0,0,0,.25);
+}
+.logo{width:56px; height:56px; object-fit:contain; display:block}
+
+.profile-wrap{
+  position:absolute; left:50%; bottom:-44px; transform:translateX(-50%);
+  width:104px; height:104px; border-radius:999px; padding:4px;
+  background:linear-gradient(135deg, var(--accent), var(--accent-2));
+  box-shadow:0 10px 24px rgba(0,0,0,.45);
+}
+.profile{
+  width:100%; height:100%; border-radius:inherit; display:block; object-fit:cover;
+  background:#fff; border:3px solid var(--card);
+}
+
+/* ==== Identity ==== */
+.identity{padding:58px 20px 6px; text-align:center}
+.fullname{margin:0; font-size:1.25rem; font-weight:700; letter-spacing:.2px}
+.accent{color:var(--accent-2)}
+.role{margin:6px 0 8px; color:var(--muted); font-weight:500; font-size:.95rem}
+.status{
+  display:inline-block; padding:6px 10px; border-radius:10px; font-weight:600; font-size:.85rem;
+  background:rgba(31,191,91,.09); color:#66d28f; border:1px solid var(--ring);
+}
+
+/* ==== Company ==== */
+.company{padding:8px 20px 4px; text-align:center}
+.brand{margin:6px 0 0; font-size:1.05rem; letter-spacing:.3px; font-weight:600}
+.tagline{margin:4px 0 0; color:var(--muted); font-size:.92rem}
+
+/* ==== Actions ==== */
+.actions{
+  display:flex; gap:10px; flex-wrap:wrap; justify-content:center;
+  padding:14px 14px 8px;
+}
+.action{
+  text-decoration:none; color:var(--text); background:rgba(255,255,255,.04);
+  border:1px solid var(--border); padding:10px 12px; border-radius:12px;
+  font-weight:600; font-size:.92rem; transition:all .2s ease;
+}
+.action:hover{transform:translateY(-2px); border-color:var(--ring); box-shadow:0 8px 20px rgba(31,191,91,.12)}
+
+/* ==== About ==== */
+.about{padding:14px 18px}
+.about h3{margin:4px 0 8px; font-size:1rem; color:var(--accent-2)}
+.about p{margin:0; color:#c9d3dc; line-height:1.6}
+
+/* ==== Hours ==== */
+.hours{padding:6px 18px 2px}
+.hours h3{margin:8px 0; font-size:1rem; color:var(--accent-2)}
+.hours-list{list-style:none; margin:0; padding:0; border:1px dashed var(--border); border-radius:12px}
+.hours-list li{
+  display:flex; justify-content:space-between; padding:10px 12px; border-bottom:1px dashed var(--border);
+}
+.hours-list li:last-child{border-bottom:none}
+.hours-list span:first-child{color:#c8d0d8}
+.hours-list span:last-child{color:#e9eef3}
+
+/* ==== Gallery ==== */
+.gallery{display:grid; grid-template-columns:repeat(3,1fr); gap:10px; padding:14px 18px}
+.tile{
+  aspect-ratio: 4 / 3; border-radius:14px; overflow:hidden; position:relative;
+  border:1px solid var(--border); background:#0e1317; transition:transform .25s ease, box-shadow .25s ease;
+}
+.tile:hover{transform:translateY(-3px); box-shadow:0 10px 26px rgba(0,0,0,.35)}
+.tile img{width:100%; height:100%; object-fit:cover; display:block; opacity:.95}
+
+/* ==== Socials ==== */
+.socials{display:flex; gap:10px; justify-content:center; padding:2px 18px 10px}
+.social{
+  width:36px; height:36px; display:grid; place-items:center; border-radius:999px;
+  background:rgba(255,255,255,.04); border:1px solid var(--border); color:#cfd6dd; font-weight:700; text-decoration:none;
+  transition:all .2s ease;
+}
+.social:hover{color:#fff; border-color:var(--ring); box-shadow:0 10px 24px rgba(31,191,91,.12)}
+
+/* ==== CTA ==== */
+.cta{display:flex; gap:10px; flex-wrap:wrap; justify-content:center; padding:8px 18px 16px}
+.btn{
+  background:linear-gradient(135deg, var(--accent), var(--accent-2));
+  color:#0b0f12; border:none; padding:10px 14px; border-radius:12px; font-weight:800; cursor:pointer;
+  box-shadow:0 10px 24px rgba(31,191,91,.18); transition:transform .15s ease, box-shadow .2s ease;
+}
+.btn:hover{transform:translateY(-2px); box-shadow:0 14px 30px rgba(31,191,91,.28)}
+.btn.outline{
+  background:transparent; color:#cfe9d8; border:1px solid var(--ring); box-shadow:none;
+}
+.btn.tiny{padding:6px 10px; font-weight:700; border-radius:10px; margin-top:10px}
+
+/* ==== QR ==== */
+.qr{padding:6px 18px 18px; text-align:center}
+.qr.hidden{display:none}
+#qrcode{display:inline-block; padding:10px; background:#fff; border-radius:12px; border:1px solid #e5e7eb}
+
+/* ==== Footer ==== */
+.footer{
+  text-align:center; color:#a8b2bb; font-size:.9rem; margin-top:14px;
+}

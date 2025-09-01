@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SOLIDIAGUI – vCard Premium</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="container">
+    <!-- HERO / COVER -->
+    <section class="card">
+      <div class="cover">
+        <img src="cover.jpg" alt="Photo de couverture" class="cover-img" />
+        <div class="logo-wrap">
+          <img src="logo.png" alt="Logo" class="logo" />
+        </div>
+        <div class="profile-wrap">
+          <img src="ZAHO.jpg" alt="Photo de profil" class="profile" />
+        </div>
+      </div>
+
+      <!-- IDENTITÉ PERSONNELLE -->
+      <header class="identity">
+        <h1 class="fullname">Nom <span class="accent">&</span> Prénom</h1>
+        <p class="role">GRAPHIC DESIGNER</p>
+        <div id="status" class="status">Vérification du statut...</div>
+      </header>
+
+      <!-- ENTREPRISE -->
+      <section class="company">
+        <h2 class="brand">SOLIDIAGUI GROUPE</h2>
+        <p class="tagline">Votre partenaire de confiance</p>
+      </section>
+
+      <!-- ACTIONS RAPIDES -->
+      <nav class="actions">
+        <a class="action" href="tel:+224621553315" aria-label="Appeler">📞 Appeler</a>
+        <a class="action" href="https://wa.me/224629113401" target="_blank" rel="noopener" aria-label="WhatsApp">💬 WhatsApp</a>
+        <a class="action" href="mailto:herman@solidiagui.com" aria-label="Email">✉️ Email</a>
+        <a class="action" href="https://maps.google.com?q=Adresse" target="_blank" rel="noopener" aria-label="Adresse">📍 Adresse</a>
+      </nav>
+
+      <!-- À PROPOS -->
+      <section class="about">
+        <h3>À propos de nous</h3>
+        <p>
+          Nous sommes spécialisés dans la sélection et la distribution des meilleurs produits alimentaires bio. Nos valeurs reposent sur la qualité, 
+          la durabilité et le respect de l'environnement. <br>
+Faites-nous confiance pour vous fournir des produits naturels et sains,
+conçus pour le bien-être de toute la famille.
+        </p>
+      </section>
+
+      <!-- HEURES D’OUVERTURE -->
+      <section class="hours">
+        <h3>Heures d’ouverture</h3>
+        <ul class="hours-list">
+          <li><span>Lundi</span><span>09:00 – 17:00</span></li>
+          <li><span>Mardi</span><span>09:00 – 17:00</span></li>
+          <li><span>Mercredi</span><span>09:00 – 17:00</span></li>
+          <li><span>Jeudi</span><span>09:00 – 17:00</span></li>
+          <li><span>Vendredi</span><span>09:00 – 17:00</span></li>
+          <li><span>Samedi</span><span>09:00 – 14:00</span></li>
+          <li><span>Dimanche</span><span>Fermé</span></li>
+        </ul>
+      </section>
+
+      <!-- GALERIE / SERVICES -->
+      <section class="gallery">
+        <div class="tile"><img src="img1.jpg" alt="Visuel 1" /></div>
+        <div class="tile"><img src="img2.jpg" alt="Visuel 2" /></div>
+        <div class="tile"><img src="img3.jpg" alt="Visuel 3" /></div>
+      </section>
+
+      <!-- RÉSEAUX SOCIAUX -->
+      <section class="socials">
+        <a href="https://www.facebook.com/profile.php?id=100090698920000" aria-label="Facebook" class="social">f</a>
+        <a href="#" aria-label="WhatsApp / WhatsApp" class="social">w</a>
+        <a href="#" aria-label="X / Twitter" class="social">x</a>
+        <a href="#" aria-label="LinkedIn" class="social">in</a>
+        <a href="#" aria-label="Instagram" class="social">ig</a>
+      </section>
+
+      <!-- ACTIONS AVANCÉES -->
+      <section class="cta">
+        <button class="btn" onclick="downloadVCF()">💾 Enregistrer le contact</button>
+        <button class="btn" onclick="shareCard()">🔗 Partager</button>
+        <button class="btn outline" onclick="generateQR()">📱 QR Code vCard</button>
+      </section>
+
+      <!-- QR -->
+      <section id="qrSection" class="qr hidden">
+        <h3>Scannez pour ajouter le contact</h3>
+        <div id="qrcode"></div>
+        <button class="btn tiny" onclick="hideQR()">Fermer</button>
+      </section>
+    </section>
+
+    <footer class="footer">
+      © <span id="year"></span> SOLIDIAGUI GROUPE — Tous droits réservés
+    </footer>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
