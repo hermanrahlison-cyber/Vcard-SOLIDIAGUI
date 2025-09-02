@@ -48,10 +48,10 @@ N:Prenom;Nom;;;
 FN:Nom Prénom
 ORG:SOLIDIAGUI GROUPE
 TITLE:Fonction / Métier
-TEL;TYPE=CELL:+22990738542
-EMAIL:demo@demo.com
-ADR;TYPE=WORK:;;Rue Exemple;Ville;;BP;Pays
-URL:https://exemple.com
+TEL;TYPE=CELL:+224621553315
+EMAIL:herman@solidiagui.com
+ADR;TYPE=WORK:Madina Corniche Sud, Conakry, Guinée
+URL:https://solidiagui.com
 END:VCARD`;
 
 function downloadVCF(){
