@@ -9,32 +9,34 @@
 </head>
 <body>
   <main class="container">
-    <!-- HERO / COVER -->
     <section class="card">
       <div class="cover">
-        <img src="cover.jpg" alt="Photo de couverture" class="cover-img" />
+        <div class="image-slider" id="imageSlider">
+          <img src="cover.jpg" alt="Photo de couverture 1" class="cover-img" />
+          <img src="cover2.jpg" alt="Photo de couverture 2" class="cover-img" />
+          <img src="cover3.jpg" alt="Photo de couverture 3" class="cover-img" />
+          </div>
+        
         <div class="logo-wrap">
           <img src="Logo Solidiagui.png" alt="Logo" class="logo" />
         </div>
-        <div class="profile-wrap">
+        
+      </div>
+      <div class="profile-wrap">
           <img src="ZAHO.jpg" alt="Photo de profil" class="profile" />
         </div>
-      </div>
 
-      <!-- IDENTITÉ PERSONNELLE -->
       <header class="identity">
         <h1 class="fullname">HERMAN <span class="accent"></span> Rhys</h1>
         <p class="role">GRAPHIC DESIGNER</p>
         <div id="status" class="status">Vérification du statut...</div>
       </header>
 
-      <!-- ENTREPRISE -->
       <section class="company">
         <h2 class="brand">SOLIDIAGUI GROUPE</h2>
         <p class="tagline">Votre partenaire de confiance</p>
       </section>
 
-      <!-- ACTIONS RAPIDES -->
       <nav class="actions">
         <a class="action" href="tel:+224621553315" aria-label="Appeler">📞 Appeler</a>
         <a class="action" href="https://wa.me/224629113401" target="_blank" rel="noopener" aria-label="WhatsApp">💬 WhatsApp</a>
@@ -42,7 +44,6 @@
         <a class="action" href="https://maps.google.com?q=Adresse" target="_blank" rel="noopener" aria-label="Adresse">📍 Adresse</a>
       </nav>
 
-      <!-- À PROPOS -->
       <section class="about">
         <h3>À propos de nous</h3>
         <p>
@@ -53,28 +54,25 @@ conçus pour le bien-être de toute la famille.
         </p>
       </section>
 
-      <!-- HEURES D’OUVERTURE -->
       <section class="hours">
         <h3>Heures d’ouverture</h3>
         <ul class="hours-list">
-          <li><span>Lundi</span><span>09:00 – 17:00</span></li>
-          <li><span>Mardi</span><span>09:00 – 17:00</span></li>
-          <li><span>Mercredi</span><span>09:00 – 17:00</span></li>
-          <li><span>Jeudi</span><span>09:00 – 17:00</span></li>
-          <li><span>Vendredi</span><span>09:00 – 17:00</span></li>
-          <li><span>Samedi</span><span>09:00 – 14:00</span></li>
+          <li><span>Lundi</span><span>08:45 – 17:00</span></li>
+          <li><span>Mardi</span><span>08:45 – 17:00</span></li>
+          <li><span>Mercredi</span><span>08:45 – 17:00</span></li>
+          <li><span>Jeudi</span><span>08:45 – 17:00</span></li>
+          <li><span>Vendredi</span><span>08:45 – 17:00</span></li>
+          <li><span>Samedi</span><span>08:45 – 14:00</span></li>
           <li><span>Dimanche</span><span>Fermé</span></li>
         </ul>
       </section>
 
-      <!-- GALERIE / SERVICES -->
       <section class="gallery">
         <div class="tile"><img src="img1.jpg" alt="Visuel 1" /></div>
         <div class="tile"><img src="img2.jpg" alt="Visuel 2" /></div>
         <div class="tile"><img src="img3.jpg" alt="Visuel 3" /></div>
       </section>
 
-      <!-- RÉSEAUX SOCIAUX -->
       <section class="socials">
         <a href="https://www.facebook.com/profile.php?id=100090698920000" aria-label="Facebook" class="social">f</a>
         <a href="#" aria-label="WhatsApp / WhatsApp" class="social">w</a>
@@ -83,14 +81,12 @@ conçus pour le bien-être de toute la famille.
         <a href="#" aria-label="Instagram" class="social">ig</a>
       </section>
 
-      <!-- ACTIONS AVANCÉES -->
       <section class="cta">
         <button class="btn" onclick="downloadVCF()">💾 Enregistrer le contact</button>
         <button class="btn" onclick="shareCard()">🔗 Partager</button>
         <button class="btn outline" onclick="generateQR()">📱 QR Code vCard</button>
       </section>
 
-      <!-- QR -->
       <section id="qrSection" class="qr hidden">
         <h3>Scannez pour ajouter le contact</h3>
         <div id="qrcode"></div>
@@ -105,5 +101,36 @@ conçus pour le bien-être de toute la famille.
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
   <script src="script.js"></script>
+
+  <script>
+    const slider = document.getElementById('imageSlider');
+    const images = slider.querySelectorAll('.cover-img');
+    let currentIndex = 0;
+    const slideDuration = 10000; // 10 secondes
+    const transitionDuration = 1000; // 1 seconde pour la transition
+
+    // Dupliquer la première image à la fin pour un effet de boucle fluide
+    const firstImageClone = images[0].cloneNode(true);
+    slider.appendChild(firstImageClone);
+
+    function slideImages() {
+        currentIndex++;
+        slider.style.transition = `transform ${transitionDuration / 1000}s ease-in-out`;
+        slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+        // Quand on arrive à la dernière image clonée, on "saute" sans transition
+        // pour revenir au début réel et donner l'impression d'une boucle infinie.
+        if (currentIndex === images.length) {
+            setTimeout(() => {
+                slider.style.transition = 'none';
+                currentIndex = 0;
+                slider.style.transform = `translateX(0)`;
+            }, transitionDuration); // Attend la fin de la transition avant de sauter
+        }
+    }
+
+    // Démarre le défilement automatique
+    setInterval(slideImages, slideDuration);
+  </script>
 </body>
 </html>
