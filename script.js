@@ -125,6 +125,6 @@ window.addEventListener('load', () => {
       splashScreen.addEventListener('transitionend', () => {
         splashScreen.remove();
       });
-    }, 3000); // Durée pendant laquelle le spinner est visible avant la disparition
+    }, 2000); // Durée pendant laquelle le spinner est visible avant la disparition
   }
 });
