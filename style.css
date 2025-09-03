@@ -10,62 +10,7 @@
   --border:rgba(255,255,255,.08);
   --shadow:0 10px 30px rgba(0,0,0,.35);
 }
-/* ==== Base ==== */
-/* ... Votre code existant ... */
 
-/* NOUVEAU CODE POUR LE CARROUSEL D'IMAGES */
-.cover {
-    position: relative;
-    width: 100%;
-    height: 200px; /* Ajustez cette hauteur selon vos besoins */
-    overflow: hidden; /* Cache les images qui débordent du conteneur */
-    border-radius: 12px 12px 0 0;
-}
-
-.image-slider {
-    display: flex; /* Affiche les images en ligne */
-    width: 100%; /* La largeur sera ajustée par JavaScript */
-    height: 100%;
-    /* La transition sera gérée par JavaScript */
-}
-
-.cover-img {
-    flex-shrink: 0; /* Empêche les images de rétrécir */
-    width: 100%; /* Chaque image prend 100% de la largeur du slider à un instant T */
-    height: 100%;
-    object-fit: cover; /* S'assure que l'image couvre bien la zone sans se déformer */
-}
-
-/* Gardez vos styles existants pour .logo-wrap, .logo, .profile-wrap, .profile */
-.logo-wrap {
-    position: absolute;
-    top: 10px; /* Ajustez si nécessaire */
-    left: 10px; /* Ajustez si nécessaire */
-    z-index: 10;
-}
-
-.logo {
-    width: 60px; /* Taille du logo */
-    height: auto;
-}
-
-.profile-wrap {
-    position: absolute;
-    top: 135px; /* Ajustez si nécessaire pour positionner le profil */
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 50;
-    border-radius: 50%;
-    border: 4px solid #fff; /* Bordure blanche autour de la photo de profil */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-}
-
-.profile {
-    width: 100px; /* Taille de la photo de profil */
-    height: 100px;
-    border-radius: 50%;
-    object-fit: cover;
-}
 *{box-sizing:border-box}
 html,body{height:100%}
 body{
@@ -91,27 +36,48 @@ body{
   border-radius:20px;
   box-shadow:var(--shadow);
   overflow:hidden;
+  position: relative;
 }
 
 /* ==== Cover / Logo / Profil ==== */
-.cover{position:relative; height:170px; background:#0e1317}
-.cover-img{width:100%; height:100%; object-fit:cover; opacity:.55; filter:saturate(.9) contrast(1.05)}
+.cover{
+    position: relative;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 12px 12px 0 0;
+}
+
+.image-slider {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.cover-img {
+    flex-shrink: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 .logo-wrap{
   position:absolute; left:14px; top:14px;
-  background-color: rgba(255, 255, 255, 0.7); border-radius:12px; padding:6px 8px; box-shadow:0 6px 14px rgba(0,0,0,.20);
-
+  background:#ffffff; border-radius:12px; padding:6px 8px; box-shadow:0 6px 14px rgba(0,0,0,.25);
+  z-index: 10;
 }
-.logo{width:36px; height:36px; object-fit:contain; display:block}
+.logo{width:56px; height:56px; object-fit:contain; display:block}
 
 .profile-wrap{
-  position:absolute; left:50%; bottom:-44px; transform:translateX(-50%);
-  width:120px; height:120px; border-radius:999px; padding:4px;
+  position:absolute; left:50%; top: 170px; transform:translateX(-50%);
+  width:104px; height:104px; border-radius:999px; padding:4px;
   background:linear-gradient(135deg, var(--accent), var(--accent-2));
   box-shadow:0 10px 24px rgba(0,0,0,.45);
+  z-index: 10;
 }
 .profile{
   width:100%; height:100%; border-radius:inherit; display:block; object-fit:cover;
-  background:#fff; border:1px solid var(--card);
+  background:#fff; border:3px solid var(--card);
 }
 
 /* ==== Identity ==== */
@@ -161,7 +127,7 @@ body{
 .gallery{display:grid; grid-template-columns:repeat(3,1fr); gap:10px; padding:14px 18px}
 .tile{
   aspect-ratio: 4 / 3; border-radius:14px; overflow:hidden; position:relative;
-  border:1px solid var(--border); background:#0e1317; transition:transform .2s ease, box-shadow .2s ease;
+  border:1px solid var(--border); background:#0e1317; transition:transform .25s ease, box-shadow .25s ease;
 }
 .tile:hover{transform:translateY(-3px); box-shadow:0 10px 26px rgba(0,0,0,.35)}
 .tile img{width:100%; height:100%; object-fit:cover; display:block; opacity:.95}
@@ -196,4 +162,87 @@ body{
 /* ==== Footer ==== */
 .footer{
   text-align:center; color:#a8b2bb; font-size:.9rem; margin-top:14px;
+}
+
+/* NOUVEAU CODE CSS POUR LE SPLASH SCREEN */
+.splash-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--bg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  opacity: 1;
+  transition: opacity 1s ease-out;
+}
+
+.splash-screen.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.splash-spinner-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-background {
+  position: absolute;
+  width: 150px; /* Taille du fond blanc */
+  height: 150px;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.splash-logo {
+  max-width: 120px;
+  height: auto;
+  z-index: 1;
+}
+
+.spinner {
+  position: absolute;
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.spinner-1 {
+  width: 200px;
+  height: 200px;
+  border: 4px solid rgba(10, 122, 54, 0.2);
+  border-top: 4px solid var(--accent);
+  animation: spin 3s linear infinite;
+}
+
+.spinner-2 {
+  width: 180px;
+  height: 180px;
+  border: 4px solid rgba(31, 191, 91, 0.2);
+  border-top: 4px solid var(--accent-2);
+  animation: spin-reverse 2.5s linear infinite;
+}
+
+.spinner-3 {
+  width: 220px;
+  height: 220px;
+  border: 4px solid rgba(10, 122, 54, 0.2);
+  border-bottom: 4px solid var(--accent);
+  animation: spin-reverse 4s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes spin-reverse {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(-360deg); }
 }

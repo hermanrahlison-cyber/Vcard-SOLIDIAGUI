@@ -8,6 +8,17 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
+  <div id="splashScreen" class="splash-screen">
+    <div class="splash-spinner-container">
+      <div class="logo-background"></div>
+      <img src="Logo Solidiagui.png" alt="Logo Solidiagui" class="splash-logo">
+      <div class="spinner spinner-1"></div> 
+      <div class="spinner spinner-2"></div>
+      <div class="spinner spinner-3"></div>
+    </div>
+  </div>
+
   <main class="container">
     <section class="card">
       <div class="cover">
@@ -15,16 +26,16 @@
           <img src="cover.jpg" alt="Photo de couverture 1" class="cover-img" />
           <img src="cover2.jpg" alt="Photo de couverture 2" class="cover-img" />
           <img src="cover3.jpg" alt="Photo de couverture 3" class="cover-img" />
-          </div>
+        </div>
         
         <div class="logo-wrap">
           <img src="Logo Solidiagui.png" alt="Logo" class="logo" />
         </div>
-        
       </div>
+
       <div class="profile-wrap">
           <img src="ZAHO.jpg" alt="Photo de profil" class="profile" />
-        </div>
+      </div>
 
       <header class="identity">
         <h1 class="fullname">HERMAN <span class="accent"></span> Rhys</h1>
@@ -101,36 +112,5 @@ conçus pour le bien-être de toute la famille.
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
   <script src="script.js"></script>
-
-  <script>
-    const slider = document.getElementById('imageSlider');
-    const images = slider.querySelectorAll('.cover-img');
-    let currentIndex = 0;
-    const slideDuration = 10000; // 10 secondes
-    const transitionDuration = 1000; // 1 seconde pour la transition
-
-    // Dupliquer la première image à la fin pour un effet de boucle fluide
-    const firstImageClone = images[0].cloneNode(true);
-    slider.appendChild(firstImageClone);
-
-    function slideImages() {
-        currentIndex++;
-        slider.style.transition = `transform ${transitionDuration / 1000}s ease-in-out`;
-        slider.style.transform = `translateX(-${currentIndex * 100}%)`;
-
-        // Quand on arrive à la dernière image clonée, on "saute" sans transition
-        // pour revenir au début réel et donner l'impression d'une boucle infinie.
-        if (currentIndex === images.length) {
-            setTimeout(() => {
-                slider.style.transition = 'none';
-                currentIndex = 0;
-                slider.style.transform = `translateX(0)`;
-            }, transitionDuration); // Attend la fin de la transition avant de sauter
-        }
-    }
-
-    // Démarre le défilement automatique
-    setInterval(slideImages, slideDuration);
-  </script>
 </body>
 </html>

@@ -28,9 +28,9 @@ function updateStatus(){
   const el = document.getElementById('status');
   if (!el) return;
   if (isOpen()){
-    el.textContent = '✅ Ouvert maintenant';
-    el.style.background = 'rgba(31,191,91,.12)';
-    el.style.color = '#7ae0a4';
+    el.textContent = '✅ Ouvert';
+    el.style.background = 'rgba(31,191,91,.09)';
+    el.style.color = '#66d28f';
     el.style.borderColor = 'rgba(31,191,91,.35)';
   } else {
     el.textContent = '❌ Fermé';
@@ -67,11 +67,10 @@ function shareCard(){
     navigator.share({ title:'SOLIDIAGUI GROUPE', text:'Carte de visite numérique', url:window.location.href })
       .catch(()=>{});
   } else {
-    alert('Partage non supporté sur ce navigateur.');
+    alert("Votre navigateur ne prend pas en charge la fonction de partage.");
   }
 }
 
-// --- QR ---
 function generateQR(){
   const holder = document.getElementById('qrcode');
   const section = document.getElementById('qrSection');
@@ -80,7 +79,52 @@ function generateQR(){
   new QRCode(holder, { text: VCF, width: 180, height: 180, correctLevel: QRCode.CorrectLevel.H });
   section.classList.remove('hidden');
 }
+
 function hideQR(){
   const section = document.getElementById('qrSection');
   if (section) section.classList.add('hidden');
 }
+
+
+// === CODE POUR L'ANIMATION DU CARROUSEL ===
+const slider = document.getElementById('imageSlider');
+if (slider) {
+    const images = slider.querySelectorAll('.cover-img');
+    let currentIndex = 0;
+    const slideDuration = 10000;
+    const transitionDuration = 1000;
+    
+    const firstImageClone = images[0].cloneNode(true);
+    slider.appendChild(firstImageClone);
+    
+    function slideImages() {
+        currentIndex++;
+        slider.style.transition = `transform ${transitionDuration / 1000}s ease-in-out`;
+        slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+    
+        if (currentIndex === images.length) {
+            setTimeout(() => {
+                slider.style.transition = 'none';
+                currentIndex = 0;
+                slider.style.transform = `translateX(0)`;
+            }, transitionDuration);
+        }
+    }
+    
+    setInterval(slideImages, slideDuration);
+}
+
+
+// === NOUVEAU CODE POUR LE GÉNÉRIQUE DE LOGO AVEC SPINNER ===
+window.addEventListener('load', () => {
+  const splashScreen = document.getElementById('splashScreen');
+  if (splashScreen) {
+    // Laisse le spinner tourner pendant 3 secondes (3000ms) avant de commencer la disparition
+    setTimeout(() => {
+      splashScreen.classList.add('fade-out');
+      splashScreen.addEventListener('transitionend', () => {
+        splashScreen.remove();
+      });
+    }, 3000); // Durée pendant laquelle le spinner est visible avant la disparition
+  }
+});
