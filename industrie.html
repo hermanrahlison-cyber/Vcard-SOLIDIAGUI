@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Industrie - SOLIDIAGUI</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <main class="container">
+    <section class="page-container">
+      <h1>Notre production industrielle</h1>
+
+      <h2>Boissons</h2>
+      <div class="gallery-grid grid-3">
+        <img src="Boisson 1.jpg" alt="Boisson 1" />
+        <img src="Boisson 2.jpg" alt="Boisson 2" />
+        <img src="Boisson 3.jpg" alt="Boisson 3" />
+      </div>
+
+      <h2>Dentifrices</h2>
+      <div class="gallery-grid grid-3">
+        <img src="Dentifrice 1.jpg" alt="Dentifrice 1" />
+        <img src="Dentifrice 2.jpg" alt="Dentifrice 2" />
+      </div>
+
+      <a href="en_savoir_plus.html" class="back-btn">← Retour</a>
+    </section>
+
+    <footer class="footer">
+      © <span id="year"></span> SOLIDIAGUI GROUPE — Tous droits réservés
+    </footer>
+  </main>
+  
+  <script src="script.js"></script>
+  <script>
+    const YEAR_EL = document.getElementById('year');
+    if (YEAR_EL) YEAR_EL.textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

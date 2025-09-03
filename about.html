@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>À propos de nous - SOLIDIAGUI</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Styles spécifiques à cette page */
+    .about-page-container {
+      background: var(--card);
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      padding: 30px;
+      margin-top: 60px;
+      box-shadow: var(--shadow);
+    }
+    .about-page-container h1 {
+      font-size: 1.5rem;
+      color: var(--accent-2);
+      margin-top: 0;
+    }
+    .about-page-container p {
+      line-height: 1.6;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+    .back-btn {
+      display: inline-block;
+      text-decoration: none;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border);
+      padding: 10px 14px;
+      border-radius: 12px;
+      font-weight: 600;
+      color: var(--text);
+      transition: all 0.2s ease;
+    }
+    .back-btn:hover {
+      transform: translateY(-2px);
+      border-color: var(--ring);
+      box-shadow: 0 8px 20px rgba(31, 191, 91, 0.12);
+    }
+  </style>
+</head>
+<body>
+
+  <main class="container">
+    <section class="about-page-container">
+      <h1>À propos de nous</h1>
+      <p>
+        Nous sommes spécialisés dans la sélection et la distribution des meilleurs produits alimentaires bio. Nos valeurs reposent sur la qualité, 
+        la durabilité et le respect de l'environnement. <br><br>
+        Faites-nous confiance pour vous fournir des produits naturels et sains,
+        conçus pour le bien-être de toute la famille.
+      </p>
+      <p>
+        Fondée sur une vision de l'excellence, SOLIDIAGUI GROUPE s'engage à offrir des services et des produits qui dépassent les attentes de nos clients. Nous nous efforçons de créer des solutions innovantes et de construire des relations de confiance durables.
+      </p>
+      <a href="index.html" class="back-btn">← Retour</a>
+    </section>
+
+    <footer class="footer">
+      © <span id="year"></span> SOLIDIAGUI GROUPE — Tous droits réservés
+    </footer>
+  </main>
+  
+  <script src="script.js"></script>
+  <script>
+    const YEAR_EL = document.getElementById('year');
+    if (YEAR_EL) YEAR_EL.textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

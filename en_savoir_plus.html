@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>En savoir plus - SOLIDIAGUI</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <main class="container">
+    <section class="page-container">
+      <h1>Notre Activité</h1>
+      <p>
+        Découvrez les deux grands piliers de SOLIDIAGUI GROUPE : l'industrie et la distribution.
+      </p>
+      <nav class="actions" style="justify-content:center;">
+        <a href="industrie.html" class="action">Industrie</a>
+        <a href="distribution.html" class="action">Distribution</a>
+      </nav>
+      <a href="index.html" class="back-btn">← Retour</a>
+    </section>
+
+    <footer class="footer">
+      © <span id="year"></span> SOLIDIAGUI GROUPE — Tous droits réservés
+    </footer>
+  </main>
+  
+  <script src="script.js"></script>
+  <script>
+    const YEAR_EL = document.getElementById('year');
+    if (YEAR_EL) YEAR_EL.textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
