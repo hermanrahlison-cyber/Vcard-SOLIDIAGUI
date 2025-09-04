@@ -91,15 +91,15 @@ const slider = document.getElementById('imageSlider');
 if (slider) {
     const images = slider.querySelectorAll('.cover-img');
     let currentIndex = 0;
-    const slideDuration = 10000;
-    const transitionDuration = 1000;
+    const slideDuration = 5000;
+    const transitionDuration = 300;
     
     const firstImageClone = images[0].cloneNode(true);
     slider.appendChild(firstImageClone);
     
     function slideImages() {
         currentIndex++;
-        slider.style.transition = `transform ${transitionDuration / 1000}s ease-in-out`;
+        slider.style.transition = `transform ${transitionDuration / 500}s ease-in-out`;
         slider.style.transform = `translateX(-${currentIndex * 100}%)`;
     
         if (currentIndex === images.length) {
@@ -125,6 +125,6 @@ window.addEventListener('load', () => {
       splashScreen.addEventListener('transitionend', () => {
         splashScreen.remove();
       });
-    }, 2000); // Durée pendant laquelle le spinner est visible avant la disparition
+    }, 800); // Durée pendant laquelle le spinner est visible avant la disparition
   }
 });

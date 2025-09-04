@@ -69,10 +69,10 @@ body{
 }
 .about-button {
     position: absolute;
-    top: 130px; /* Ajustez cette valeur pour le positionnement vertical */
+    top: 60px; /* Ajustez cette valeur pour le positionnement vertical */
     left: 50%;
     transform: translateX(-50%);
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 78, 14, 0.5);
     color: #fff;
     padding: 8px 16px;
     border-radius: 20px;
@@ -80,7 +80,7 @@ body{
     font-weight: 600;
     font-size: 0.9rem;
     z-index: 8;
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(0.5px);
     transition: all 0.2s ease;
 }
 .about-button:hover {
@@ -89,13 +89,13 @@ body{
 }
 .logo-wrap{
   position:absolute; left:14px; top:14px;
-  background:#ffffff; border-radius:12px; padding:6px 8px; box-shadow:0 6px 14px rgba(0,0,0,.25);
+  background:rgba(255, 255, 255, 0.7); border-radius:12px; padding:6px 8px; box-shadow:0 6px 14px rgba(0,0,0,.25);
   z-index: 10;
 }
-.logo{width:56px; height:56px; object-fit:contain; display:block}
+.logo{width:30px; height:30px; object-fit:contain; display:block}
 .profile-wrap{
-  position:absolute; left:50%; top: 170px; transform:translateX(-50%);
-  width:104px; height:104px; border-radius:999px; padding:4px;
+  position:absolute; left:50%; top: 120px; transform:translateX(-50%);
+  width:120px; height:120px; border-radius:999px; padding:4px;
   background:linear-gradient(135deg, var(--accent), var(--accent-2));
   box-shadow:0 10px 24px rgba(0,0,0,.45);
   z-index: 10;
@@ -290,3 +290,88 @@ body{
   border-color: var(--ring);
   box-shadow: 0 8px 20px rgba(31, 191, 91, 0.12);
 }
+
+
+/* ... Votre code CSS existant ... */
+
+/* NOUVEAUX STYLES OU MODIFICATIONS POUR LA PAGE INDUSTRIE */
+
+/* Cadre du titre principal de la section */
+.section-title-box {
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  padding: 15px 20px;
+  border-radius: 15px;
+  margin-bottom: 30px; /* Espace après le cadre */
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(255, 1, 1, 0.18);
+}
+
+.section-title-box h1 {
+  color: #ffffff; /* Couleur foncée pour le texte sur fond clair */
+  font-size: 1.8rem; /* Plus grand pour le titre principal */
+  margin: 0; /* Supprime la marge par défaut du h1 */
+}
+
+/* Sous-titres de section (Boissons, Dentifrices) */
+.page-container h2 {
+  font-size: 1.25rem; /* Taille plus petite que le titre principal */
+  color: var(--accent-2); /* Conserve la couleur d'accentuation */
+  margin-top: 40px; /* Plus d'espace au-dessus des sous-titres */
+  margin-bottom: 20px; /* Espace après le sous-titre */
+  border-bottom: 1px solid var(--border); /* Petite ligne de séparation */
+  padding-bottom: 10px;
+}
+
+/* Conteneur pour chaque image et son texte */
+.gallery-item {
+  background: rgba(255, 255, 255, 0.03); /* Fond légèrement différent pour chaque item */
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 15px;
+  margin-bottom: 20px; /* Espace entre chaque élément d'image */
+  text-align:left;
+}
+
+.gallery-item img {
+  width: 100%;
+  max-width: 300px; /* Limite la largeur des images si elles sont trop grandes */
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 15px; /* Espace entre l'image et son titre */
+  display: block; /* Pour centrer facilement avec text-align: center sur le parent */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.image-title {
+  font-size: 1.1rem; /* Taille du titre de l'image */
+  color: var(--text);
+  margin-top: 0;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.image-description {
+  font-size: 0.9rem; /* Taille de la description de l'image */
+  color: var(--muted);
+  line-height: 1.5;
+  margin-bottom: 0; /* Pas de marge en bas */
+}
+
+/* Le reste de votre CSS reste inchangé, notamment : */
+.learn-more {
+  text-align: center;
+  padding: 14px 18px 8px;
+}
+.learn-more .btn {
+  /* Le bouton utilise déjà le style .btn, donc pas de duplication */
+}
+.page-container {
+  background: var(--card);
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  padding: 30px;
+  margin-top: 60px;
+  box-shadow: var(--shadow);
+}
+/* ... etc. ... */
